@@ -1,0 +1,51 @@
+[
+  {
+    "recipe_id": 1,
+    "title": "Salmon Teriyaki",
+    "description": "Start by preparing the teriyaki sauce: in a small saucepan, combine 1/4 cup soy sauce, 2 tablespoons mirin, 2 tablespoons sake, and 1 tablespoon sugar. Bring the mixture to a gentle simmer over medium heat and cook until slightly thickened, about 5 minutes. Let the sauce cool to room temperature. Marinate the salmon fillets in half of the teriyaki sauce for 15 minutes, setting the remaining sauce aside for glazing. Preheat a grill or grill pan over medium heat and lightly oil the grates. Remove the salmon from the marinade, letting any excess drip off, and grill for about 4-5 minutes per side. While grilling, brush the salmon with the reserved sauce to create a shiny glaze. Serve the teriyaki salmon with steamed rice and a side of sautéed vegetables.",
+    "difficulty": "Easy",
+    "preparation_time": 30
+  },
+  {
+    "recipe_id": 2,
+    "title": "Crispy Baked Cod",
+    "description": "Preheat your oven to 400°F (200°C) and line a baking sheet with parchment paper. In a shallow dish, mix together 1 cup of panko breadcrumbs, 1/4 cup grated Parmesan cheese, a teaspoon of garlic powder, and a pinch of salt and pepper. In another dish, whisk together one egg with a tablespoon of water. Dip the cod fillets first in the egg wash, then coat them in the breadcrumb mixture, pressing gently to ensure an even coating. Place the fillets on the prepared baking sheet and drizzle lightly with olive oil. Bake for 15-20 minutes, or until the crust is golden and the fish is cooked through. Serve with lemon wedges and a simple salad for a light, flavorful meal.",
+    "difficulty": "Medium",
+    "preparation_time": 35
+  },
+  {
+    "recipe_id": 3,
+    "title": "Tuna Poke Bowl",
+    "description": "Start by preparing the tuna: dice fresh sushi-grade tuna into bite-sized cubes and set aside. In a bowl, whisk together 2 tablespoons soy sauce, 1 teaspoon sesame oil, 1 teaspoon rice vinegar, and a pinch of sugar. Toss the tuna in the sauce and let it marinate in the refrigerator for 15 minutes. While the tuna marinates, cook sushi rice according to package instructions and let it cool slightly. Assemble the poke bowl by placing a scoop of rice at the bottom, then topping it with the marinated tuna, sliced avocado, shredded carrots, edamame, and cucumber slices. Garnish with sesame seeds and a drizzle of sriracha mayo for a spicy kick.",
+    "difficulty": "Easy",
+    "preparation_time": 25
+  },
+  {
+    "recipe_id": 4,
+    "title": "Seafood Paella",
+    "description": "Heat 2 tablespoons of olive oil in a large paella pan or deep skillet over medium heat. Add 1 finely chopped onion, 2 minced garlic cloves, and 1 diced red bell pepper, cooking until softened. Stir in 1 cup of Arborio rice and toast for 2 minutes. Add 1 teaspoon smoked paprika, a pinch of saffron threads, and 3 cups of fish or chicken stock, stirring well. Bring to a simmer and cook for 10 minutes without stirring. Arrange an assortment of seafood on top, such as shrimp, mussels, and clams, pushing them slightly into the rice. Cover and simmer for an additional 10-15 minutes, or until the seafood is cooked and the rice has absorbed the liquid. Garnish with chopped parsley and lemon wedges before serving.",
+    "difficulty": "Hard",
+    "preparation_time": 60
+  },
+  {
+    "recipe_id": 5,
+    "title": "Stuffed Sole with Spinach and Cream Cheese",
+    "description": "Preheat your oven to 375°F (190°C). Prepare the stuffing by mixing 1 cup of cooked, chopped spinach with 1/2 cup cream cheese, 1 minced garlic clove, and a pinch of nutmeg. Lay the sole fillets flat and spoon a small amount of the spinach mixture onto each fillet. Roll the fillets up tightly and secure with toothpicks. Place the stuffed sole rolls seam-side down in a greased baking dish. Pour 1/2 cup of white wine and 1/2 cup of fish stock over the fish, and sprinkle with breadcrumbs. Cover with foil and bake for 20 minutes, then remove the foil and bake for another 10 minutes, or until the fish is cooked through and the breadcrumbs are golden. Serve with a side of steamed asparagus.",
+    "difficulty": "Medium",
+    "preparation_time": 45
+  },
+  {
+    "recipe_id": 6,
+    "title": "Smoked Mackerel Rillettes",
+    "description": "Flake 200 grams of smoked mackerel into a mixing bowl, discarding the skin and any bones. Add 100 grams of softened cream cheese, the juice of half a lemon, 1 tablespoon of chopped dill, and 1 teaspoon of Dijon mustard. Mix thoroughly until you achieve a smooth and spreadable consistency. Adjust seasoning with salt and pepper to taste. Transfer the mixture to a serving bowl and chill in the refrigerator for at least 1 hour to allow the flavors to meld. Serve the rillettes with slices of crusty bread or crackers as a delightful appetizer.",
+    "difficulty": "Easy",
+    "preparation_time": 15
+  },
+  {
+    "recipe_id": 7,
+    "title": "Blackened Catfish with Cajun Sauce",
+    "description": "In a small bowl, mix together 1 tablespoon smoked paprika, 1 teaspoon garlic powder, 1 teaspoon onion powder, 1 teaspoon cayenne pepper, and a pinch of salt and pepper. Rub the spice mixture generously over catfish fillets. Heat a cast-iron skillet over high heat and add a tablespoon of oil. Once the skillet is smoking hot, carefully place the fillets in the pan. Cook for 3-4 minutes per side, creating a deep blackened crust. For the Cajun sauce, combine 1/2 cup mayonnaise, 1 tablespoon Dijon mustard, 1 teaspoon hot sauce, and a squeeze of lemon juice in a small bowl. Serve the blackened catfish with the Cajun sauce on the side and a helping of creamy coleslaw.",
+    "difficulty": "Hard",
+    "preparation_time": 40
+  }
+]
