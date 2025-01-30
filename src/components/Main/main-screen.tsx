@@ -55,7 +55,7 @@ export const Main = () => {
         {page === 'profile' ? null : (
           <Image
             style={styles.waves}
-            source={require('../../assets/images/header_waves.png')}
+            // source={require('../../assets/images/header_waves.png')}
           />
         )}
         {renderScreen()}
