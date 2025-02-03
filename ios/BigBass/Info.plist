@@ -39,15 +39,14 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>${PRODUCT_NAME} requires access to the camera to capture photos for user profiles and in-app activities.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>${PRODUCT_NAME} requires microphone access to record audio for in-app video features.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>${PRODUCT_NAME} We need access to your photo library to select images or videos.</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>${PRODUCT_NAME} uses tracking to provide personalized ads tailored to your interests.</string>
-	<key>SKAdNetworkItems</key>
+    <key>NSCameraUsageDescription</key>
+    <string>Access to the camera is needed to take photos for profile customization and interactive app features.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Microphone access is required to enable audio recording for voice and video functionalities.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Permission is needed to browse and select media files from your photo library.</string>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>Tracking is used to enhance your experience with personalized content and relevant advertisements.</string>	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
 			<key>SKAdNetworkIdentifier</key>
